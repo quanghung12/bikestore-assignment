@@ -46,7 +46,7 @@ public class HibernateConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(mysqlDataSource());
-        sessionFactory.setPackagesToScan("com.quanghung.vd1.dao");
+        sessionFactory.setPackagesToScan("com.quanghung.backend.dao");
         Properties hibernateProperties = new Properties();
         hibernateProperties.put("hibernate.dialect", DIALECT);
         hibernateProperties.put("hibernate.show_sql", SHOW_SQL);

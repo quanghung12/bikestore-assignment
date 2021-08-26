@@ -1,21 +1,22 @@
 package com.quanghung.backend.api.brand;
 
-import com.quanghung.backend.dao.product.Product;
-import com.quanghung.backend.dao.product.ProductDAO;
+import com.quanghung.backend.dao.brand.Brand;
+import com.quanghung.backend.dao.brand.BrandDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("GetProductsAPI")
-@RequestMapping(path = "/products")
+@RestController("GetBrandAPI")
+@RequestMapping(path = "/brands")
 public class Get {
     @Autowired
-    ProductDAO productDAO;
+    BrandDAO brandDAO;
 
-    @GetMapping(path = "{productId}")
-    public Product get(@PathVariable int productId) {
-        return productDAO.getProduct(productId);
+    @GetMapping(path = "/{brandId}")
+    public Brand Get(@PathVariable int brandId) {
+        return brandDAO.getBrand(brandId);
     }
+
 }

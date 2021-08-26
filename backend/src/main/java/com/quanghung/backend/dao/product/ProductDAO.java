@@ -16,7 +16,6 @@ public class ProductDAO {
     public Product getProduct(Integer productId) {
         Session session = this.sessionFactory.getCurrentSession();
         Product product = session.get(Product.class, productId);
-        product.getBrandId();
         return product;
     }
 
