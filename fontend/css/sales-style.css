@@ -1,0 +1,113 @@
+
+  #header__1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1200;
+}
+
+
+.nav__icons {
+display: flex;
+position: relative;
+}
+
+.nav__icons .icon__item svg {
+width: 1rem;
+height: 1rem;
+}
+
+.nav__icons .icon__item {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0.7rem;
+border: 1px solid black;
+border-radius: 50%;
+transition: background-color 0.3s ease-in-out;
+}
+
+.nav__icons .icon__item:link,
+.nav__icons .icon__item:visited {
+color: var(--black);
+}
+
+.nav__icons .icon__item:hover {
+background-color: orangered;
+border: 1px solid black;
+}
+
+.nav__icons .icon__item:not(:last-child) {
+margin-right: 0.8rem;
+}
+
+.nav__icons #cart__total {
+font-size: 0.6rem;
+position: absolute;
+top: 2px;
+right: -6px;
+background-color: orangered;
+padding: 0.2rem 0.4rem;
+border-radius: 100%;
+color: white;
+}
+
+.overlay-image {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+top: 0;
+background-position: center;
+background-size: contain;
+background-repeat: no-repeat;
+opacity: 0.5;
+}
+
+.image__1 {
+display: block;
+margin-left: auto;
+margin-right: auto;
+display: block;
+max-height:32rem;
+width: auto;
+height: auto;
+}
+
+.carousel {
+margin-bottom: 4rem;
+}
+
+.carousel-caption {
+bottom: 3rem;
+z-index: 10;
+}
+
+.carousel-item {
+height: 32rem;
+}
+.carousel-item > img {
+position: absolute;
+top: 0;
+left: 0;
+min-width: 100%;
+height: 32rem;
+}
+
+.carousel-inner {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: rgb(233, 233, 233);
+}
+
+.carousel-control-prev {
+color: black;
+}
+
+.carousel-item {
+height: 32rem;
+background: white;
+}
