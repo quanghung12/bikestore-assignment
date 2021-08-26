@@ -1,6 +1,8 @@
 package com.quanghung.backend.dao.customer;
 
 
+import com.quanghung.backend.api.order.Create;
+
 import javax.persistence.*;
 
 @Entity
@@ -36,6 +38,19 @@ public class Customer {
     private String zipCode;
 
     public Customer() {
+    }
+
+    public Customer(Create.CustomerRequest customerRequest) {
+        this.firstName = customerRequest.firstName;
+        this.lastName = customerRequest.lastName;
+        this.phone = customerRequest.phone;
+        this.email = customerRequest.email;
+        this.street = customerRequest.street;
+        this.city = customerRequest.city;
+    }
+
+    public int getCustomerId() {
+        return customerId;
     }
 
     public String getFirstName() {

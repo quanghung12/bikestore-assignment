@@ -16,9 +16,6 @@ public class Brand {
     @Column(name = "brand_name", nullable = false)
     private String brandName;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "brands")
-    private Product product;
-
     public Brand() {
     }
 

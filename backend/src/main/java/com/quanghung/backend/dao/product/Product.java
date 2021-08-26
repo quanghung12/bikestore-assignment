@@ -18,11 +18,13 @@ public class Product {
     @Column(name = "product_name")
     private String productName;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    private Brand brandId;
+    @OneToOne()
+    @JoinColumn(name = "brand_id", referencedColumnName = "brand_id")
+    private Brand brand;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    private Category categoryId;
+    @OneToOne()
+    @JoinColumn(name = "category_id", referencedColumnName = "category_id")
+    private Category category;
 
     @Column(name = "model_year")
     private int modelYear;
@@ -36,21 +38,21 @@ public class Product {
     public Product() {
     }
 
-    public void setBrandId(Brand brandId) {
-        this.brandId = brandId;
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 
-    public Product(String productName, Brand brandId, Category categoryId, int modelYear, BigDecimal listPrice, String imageId) {
+    public Product(String productName, Brand brand, Category category, int modelYear, BigDecimal listPrice, String imageId) {
         this.productName = productName;
-        this.brandId = brandId;
-        this.categoryId = categoryId;
+        this.brand = brand;
+        this.category = category;
         this.modelYear = modelYear;
         this.listPrice = listPrice;
         this.imageId = imageId;
     }
 
-    public void setCategoryId(Category categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public String getImageId() {
@@ -78,13 +80,13 @@ public class Product {
         this.productName = productName;
     }
 
-    public Brand getBrandId() {
-        return brandId;
+    public Brand getBrand() {
+        return brand;
     }
 
 
-    public Category getCategoryId() {
-        return categoryId;
+    public Category getCategory() {
+        return category;
     }
 
 

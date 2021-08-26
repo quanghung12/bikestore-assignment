@@ -15,9 +15,6 @@ public class Category {
     @Column(name = "category_name")
     private String categoryName;
 
-    @OneToOne(mappedBy = "categories")
-    private Product product;
-
     public Category() {
     }
 
