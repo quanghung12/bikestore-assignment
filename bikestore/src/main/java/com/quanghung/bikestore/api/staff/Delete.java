@@ -1,7 +1,7 @@
-package com.quanghung.vd1.api.staff;
+package com.quanghung.bikestore.api.staff;
 
 
-import com.quanghung.vd1.dao.Staff.StaffDAO;
+import com.quanghung.bikestore.dao.staff.StaffDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
