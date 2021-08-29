@@ -23,3 +23,5 @@
 hs_err_pid*
 
 backend/.gradle
+backend/.gradle/*
+backend/build
