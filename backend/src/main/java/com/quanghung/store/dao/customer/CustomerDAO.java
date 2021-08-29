@@ -30,6 +30,7 @@ public class CustomerDAO {
             customer.setEmail(c.getEmail());
             customer.setCity(c.getCity());
             customer.setPhone(c.getPhone());
+            customer.setStreet(c.getStreet());
 
             session.saveOrUpdate(customer);
             return customer;

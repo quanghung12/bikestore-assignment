@@ -22,9 +22,13 @@ public class ProductDAO {
         return product;
     }
 
-    public List<Product> getProducts() {
+    public List<Product> getProducts(String searchString) {
         Session session = this.sessionFactory.getCurrentSession();
         Query query = session.createQuery("From Product");
+        if (searchString != null) {
+            query = session.createQuery("From Product as p where p.categoryId = :searchString");
+            query.setParameter("searchString", Integer.parseInt(searchString));
+        }
         List<Product> products = query.getResultList();
         return products;
     }
