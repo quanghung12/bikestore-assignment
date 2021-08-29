@@ -12,12 +12,12 @@ function getListProduct() {
           };
     
           $.ajax(settings).done(function (pros) {
-            for(let i = 0; i < 8; i++) {
+            for(let i = 0; i < 21; i++) {
                 let productNameReformat = pros[i].productName.replace("'", "\\'");
 
                 let b = '<div class="col-4 mt-1">';
                 b += '<div class="card border-0 align-content-lg-center" style="width: 18rem, height: 20rem">';
-                b += '<a class="nav-link link-dark" target="_blank" href="product.html?id=' + pros[i].productId + '">';
+                b += '<a class="nav-link link-dark" target="_blank" href="http://127.0.0.1:8000/sales-page/display-product.html?id=' + pros[i].productId + '">';
                 b += '<img src="'+ pros[i].imageId +'" class="card-img-top img-fluid" alt="..." style="height: 15rem; >'
                 b += '<a/>';
                 b += '<div class="card-body">';
@@ -68,7 +68,7 @@ function displayProduct(product) {
     b += '<input id="soluong" style="width: 3rem;" aria-label="quantity" class="input-qty text-center" max="100" min="1" name="" type="number" value="1">';
     b += '<input class="plus is-form" style="width: 1.8rem;" type="button" value="+">';
     b += '</div>';
-    b += '<a href="#" onclick="addProduct2Cart(' + product.productId + ', \'' + productNameReformat +'\', ' + product.listPrice + ', \'' + product.imageId +'\', null)" class="btn btn-outline-secondary">ADD TO CART</a>';
+    b += '<a onclick="addProduct2Cart(' + product.productId + ', \'' + productNameReformat +'\', ' + product.listPrice + ', \'' + product.imageId +'\', null)" class="btn btn-outline-secondary">ADD TO CART</a>';
     b += '</div>';
     b += '</div>';
     b += '</div>';
@@ -270,8 +270,8 @@ function buy() {
         },
         "data": JSON.stringify({
             'storeId': order.storeId,
-            'customer': order.customer,
-            'orderDetails': orderDetails
+            'customerRequest': order.customer,
+            'orderItemRequest': orderDetails
         }),
     };
 
@@ -301,7 +301,7 @@ function getInput() {
           treshold: 1,
           onSelectItem: ({label, value}) => {
             console.log(value);
-            $("#search-products").attr("href", "product.html?id=" + value);
+            $("#search-products").attr("href", "http://127.0.0.1:8000/sales-page/display-product.html?id=" + value);
           }
       });
     var settings = {
