@@ -1,1 +1,4 @@
-GET http://localhost:8080/brands?q=Ha
+GET http://localhost:8080/brands
+
+### 
+GET http://localhost:8080/brands/1
