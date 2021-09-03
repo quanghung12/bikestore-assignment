@@ -1,0 +1,36 @@
+GET http://localhost:8080/customers/2
+
+###
+GET http://localhost:8080/customers
+
+###
+POST http://localhost:8080/customers
+Content-Type: application/json
+
+{
+    "first_name": "Hung",
+    "last_name": "Quang",
+    "phone": "0357838844",
+    "email": "Anhhungdayemoi@gmail.com",
+    "street": "Co Loa",
+    "city": "Ha Noi",
+    "state": "Viet Nam",
+    "zip_code": "02154"
+}
+
+###
+PUT http://localhost:8080/customers/1497
+Content-Type: application/json
+
+{
+    "first_name": "Huy",
+    "last_name": "Quang",
+    "phone": "035752145",
+    "email": "ayemoi@gmail.com",
+    "street": "Co Loa",
+    "city": "Ha Noi",
+    "state": "Viet Nam",
+    "zip_code": "02254"
+}
+###
+DELETE http://localhost:8080/customers/1453

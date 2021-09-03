@@ -1,0 +1,22 @@
+http://localhost:8080/Categories
+
+###
+
+http://localhost:8080/orders?q=2018
+
+###
+POST http://localhost:8080/Categories
+Content-Type: application/json
+
+{
+    "name": "Okia"
+}
+###
+PUT http://localhost:8080/Categories/10
+Content-Type: application/json
+
+{
+    "name": "Ohaio"
+}
+###
+DELETE http://localhost:8080/Categories/11

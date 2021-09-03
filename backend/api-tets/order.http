@@ -1,0 +1,27 @@
+POST http://localhost:8080/orders
+Content-Type: application/json
+
+{
+    "customerRequest": {
+        "firstName": "Hung",
+        "lastName": "Quang",
+        "phone": "0357838844",
+        "email": "dayemoi@gmail.com",
+        "street": "Nguyen Hue",
+        "city": "Sai Gon"
+    },
+    "storeId": 1,
+    "orderItemRequest": [{
+        "itemId": 1,
+        "productId": 4,
+        "quantity": 1,
+        "listPrice": 1320.99,
+        "discount": 0
+    },{
+        "itemId": 2,
+        "productId": 1,
+        "quantity": 1,
+        "listPrice": 379.99,
+        "discount": 0
+    }]
+}

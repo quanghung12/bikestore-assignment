@@ -1,0 +1,15 @@
+GET http://localhost:8080/staffs
+
+###
+PUT http://localhost:8080/products/322
+Content-Type: application/json
+
+{
+    "firstName": "Quang",
+    "lastName": "Hung",
+    "email": "Hung230108@bikes.shop",
+    "phone": "(085)032145547",
+    "active": 1,
+    "storeId": 2,
+    "managerId": 5
+}
