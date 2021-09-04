@@ -16,6 +16,6 @@ public class Get {
 
     @GetMapping(path = "/{staffId}")
     public Staff Get(@PathVariable int staffId) {
-        return staffDAO.getStaff(staffId);
+        return staffDAO.findById(staffId);
     }
 }

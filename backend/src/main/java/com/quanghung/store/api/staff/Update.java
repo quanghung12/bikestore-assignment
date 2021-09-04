@@ -14,7 +14,7 @@ public class Update {
 
     @PutMapping(path = "/{staffId}")
     public Staff Update(@PathVariable int staffId,@RequestBody Request req) {
-        Staff staff = staffDAO.getStaff(staffId);
+        Staff staff = staffDAO.findById(staffId);
         staff.setFirstName(req.first_name);
         staff.setLatsName(req.last_name);
         staff.setEmail(req.email);

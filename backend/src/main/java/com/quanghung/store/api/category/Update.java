@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 
 @RestController("UpdateCategoriesAPI")
-@RequestMapping(path = "/Categories")
+@RequestMapping(path = "/categories")
 public class Update {
     @Autowired
     CategoryDAO categoryDAO;
     @PutMapping(path = "/{categoryId}")
     @Transactional
     public Category update(@PathVariable int categoryId, @RequestBody Request req) {
-        Category c = categoryDAO.getCategory(categoryId);
+        Category c = categoryDAO.findById(categoryId);
         c.setCategoryName(req.name);
         return categoryDAO.save(c);
     }

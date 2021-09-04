@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController("CreateOrderAPI")
-@RequestMapping(path = "orders")
+@RequestMapping(path = "/orders")
 public class Create {
     @Autowired
     OrderDAO orderDAO;
@@ -49,9 +49,9 @@ public class Create {
 
     private void deductStock(Integer storeId, OrderItem orderItem) {
         StockPrimaryKey stockPrimaryKey = new StockPrimaryKey(storeId, orderItem.getProductId());
-        Stock stock = stockDAO.get(stockPrimaryKey);
+        Stock stock = stockDAO.getByPrimaryKey(stockPrimaryKey);
         stock.deductQuantity(orderItem.getQuantity());
-        stockDAO.update(stock);
+        stockDAO.save(stock);
     }
 
     public static class Request {

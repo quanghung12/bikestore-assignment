@@ -13,7 +13,7 @@ public class Update {
     @PutMapping(path = "customerId")
 
     public Customer update(@PathVariable int customerId, @RequestBody Request request) {
-        Customer customer = customerDAO.getCustomer(customerId);
+        Customer customer = customerDAO.findById(customerId);
         customer.setFirstName(request.firstName);
         customer.setLastName(request.lastName);
         customer.setPhone(request.phone);

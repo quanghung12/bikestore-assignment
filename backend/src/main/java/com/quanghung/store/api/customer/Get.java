@@ -16,6 +16,6 @@ public class Get {
 
     @GetMapping(path = "/{customerId}")
     public Customer Get(@PathVariable int customerId) {
-        return customerDAO.getCustomer(customerId);
+        return customerDAO.findById(customerId);
     }
 }

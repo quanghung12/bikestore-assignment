@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController("GetAllCategoriesAPI")
-@RequestMapping(path = "Categories")
+@RequestMapping(path = "categories")
 public class GetAll {
     @Autowired
     CategoryDAO categoryDAO;
 
     @GetMapping()
-    public List<Category> getAll(@RequestParam(required = false) String q) {
-        return categoryDAO.getCategories();
+    public List<Category> getAll() {
+        return categoryDAO.getAll();
     }
 }

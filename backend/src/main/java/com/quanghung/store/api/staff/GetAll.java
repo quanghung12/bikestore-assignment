@@ -18,8 +18,8 @@ public class GetAll {
     StaffDAO staffDAO;
 
     @GetMapping()
-    public List<Staff> getAll(@RequestParam(required = false) String q) {
-        return staffDAO.getStaffs();
+    public List<Staff> getAll() {
+        return staffDAO.getAll();
     }
 
 }

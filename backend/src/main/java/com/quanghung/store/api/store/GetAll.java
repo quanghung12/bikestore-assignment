@@ -17,8 +17,8 @@ public class GetAll {
     @Autowired
     StoreDAO storeDAO;
     @GetMapping()
-    public List<Store> GetAll(@RequestParam(required = false) String q) {
-        return storeDAO.getStores();
+    public List<Store> GetAll() {
+        return storeDAO.getAll();
     }
 
 }

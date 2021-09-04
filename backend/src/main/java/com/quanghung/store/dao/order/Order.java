@@ -1,5 +1,6 @@
 package com.quanghung.store.dao.order;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.quanghung.store.api.order.Create;
 import com.quanghung.store.dao.customer.Customer;
 
@@ -17,11 +18,12 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer orderId;
 
-    @Column(name = "customer_id")
-    private Integer customerId;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
+    private Customer customer;
 
     @Column(name = "order_status")
-    private Status orderStatus;
+    private Integer orderStatus;
 
     @Column(name = "order_date")
     private LocalDate orderDate;
@@ -48,6 +50,7 @@ public class Order {
         Status(int value) {
             this.value = value;
         }
+
         public static Status fromInt(int id) {
             for (Status type : values()) {
                 if (type.value == id) {
@@ -67,20 +70,23 @@ public class Order {
     }
 
     public Order(Create.Request request, Customer c) {
-        this.customerId = c.getCustomerId();
-        this.orderStatus = Status.Processing;
+        this.customer = c;
+        this.orderStatus = Status.Processing.toInt();
         this.orderDate = LocalDate.now();
         this.requiredDate = LocalDate.now().plusDays(5);
         this.shippedDate = LocalDate.now().plusDays(4);
         this.storeId = request.storeId;
     }
 
-    public Integer getCustomerId() {
-        return customerId;
+    public Order() {
     }
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public String getStaffId() {
@@ -100,11 +106,11 @@ public class Order {
     }
 
     public Status getOrderStatus() {
-        return orderStatus;
+        return Status.fromInt(orderStatus);
     }
 
     public void setOrderStatus(Status orderStatus) {
-        this.orderStatus = orderStatus;
+        this.orderStatus = orderStatus.toInt();
     }
 
     public LocalDate getOrderDate() {
@@ -139,6 +145,7 @@ public class Order {
         this.storeId = storeId;
     }
 
+    @JsonIgnore
     public List<OrderItem> getOrderItems() {
         return orderItems;
     }

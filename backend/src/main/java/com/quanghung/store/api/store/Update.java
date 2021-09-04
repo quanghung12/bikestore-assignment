@@ -14,7 +14,7 @@ public class Update {
 
     @PutMapping(path = "/{storeId}")
     public Store Update(@PathVariable int storeId, @RequestBody Request req) {
-        Store store = storeDAO.getStore(storeId);
+        Store store = storeDAO.findById(storeId);
         store.setStoreName(req.storeName);
         store.setCity(req.city);
         store.setEmail(req.email);

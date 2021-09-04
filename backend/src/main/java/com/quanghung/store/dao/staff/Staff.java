@@ -102,7 +102,7 @@ public class Staff {
         this.storeId = storeId;
     }
 
-    public int getManagerId() {
+    public Integer getManagerId() {
         return managerId;
     }
 

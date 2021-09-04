@@ -1,7 +1,7 @@
-GET http://localhost:8080/orders?storeId=1&orderStatus=Completed&day=1500
+GET http://localhost:8080/products/1
 
 ###
-GET http://localhost:8080/products?q=Qu
+GET http://localhost:8080/products
 
 ###
 POST http://localhost:8080/products

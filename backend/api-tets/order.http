@@ -25,3 +25,6 @@ Content-Type: application/json
         "discount": 0
     }]
 }
+
+### 
+GET http://localhost:8080/orders

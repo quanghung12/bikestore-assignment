@@ -1,36 +1,37 @@
 package com.quanghung.store.dao.order;
 
+import com.quanghung.store.dao.AbstractDAO;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Query;
 import javax.transaction.Transactional;
+import java.util.List;
 
 
 @Repository
 @Transactional
-public class OrderDAO {
-    @Autowired
-    SessionFactory sessionFactory;
+public class OrderDAO extends AbstractDAO<Order> {
 
-    public Order save(Order o) {
-        Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(o);
-        return o;
+
+    public OrderDAO() {
+        super(Order.class);
     }
 
-    public Order get(Integer OrderId) {
+    public List<Order> getOrderByCustomerName(String customerName) {
         Session session = sessionFactory.getCurrentSession();
-        Order order = session.find(Order.class, OrderId);
-        return order;
-    }
 
-    public OrderItem saveOrderItem(OrderItem o) {
-        Session session = sessionFactory.getCurrentSession();
-        session.save(o);
-        return o;
-    }
+        Query query = session.createQuery(
+                    "from Order");
+        if (customerName != null) {
+            query = session.createQuery(
+                    "from Order as o where o.customer.firstName = :searchString"
+            );
 
+            query.setParameter("searchString", customerName);
+        }
+        List<Order> orders = query.getResultList();
+        return orders;
+    }
 }
 

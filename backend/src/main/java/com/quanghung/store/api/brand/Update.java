@@ -17,7 +17,7 @@ public class Update {
     @PutMapping(path = "/{brandId}")
     @Transactional
     public Brand Update(@PathVariable int brandId, @RequestBody Request request) {
-        Brand b = brandDAO.getBrand(brandId);
+        Brand b = brandDAO.findById(brandId);
         b.setBrandName(request.name);
         return brandDAO.save(b);
     }

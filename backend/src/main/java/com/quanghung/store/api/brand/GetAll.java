@@ -6,7 +6,6 @@ import com.quanghung.store.dao.brand.BrandDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,7 +17,7 @@ public class GetAll {
     BrandDAO brandDAO;
 
     @GetMapping
-    public List<Brand> GetAll(@RequestParam(required = false) String q) {
-        return brandDAO.getBrands(q);
+    public List<Brand> GetAll() {
+        return brandDAO.getAll();
     }
 }

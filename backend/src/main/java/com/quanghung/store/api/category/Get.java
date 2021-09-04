@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController("GetCategoryAPI")
-@RequestMapping(path = "/Categories")
+@RequestMapping(path = "/categories")
 public class Get {
     @Autowired
     CategoryDAO categoryDAO;
 
     @GetMapping(path = "/{categoryID}")
     public Category get(@PathVariable Integer categoryID) {
-        return categoryDAO.getCategory(categoryID);
+        return categoryDAO.findById(categoryID);
     }
 }

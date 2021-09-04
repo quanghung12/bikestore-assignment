@@ -18,8 +18,8 @@ public class GetAll {
     CustomerDAO customerDAO;
 
     @GetMapping()
-    public List<Customer> getAll(@RequestParam(required = false) String q) {
-        return customerDAO.getCustomers();
+    public List<Customer> getAll() {
+        return customerDAO.getAll();
     }
 
 }

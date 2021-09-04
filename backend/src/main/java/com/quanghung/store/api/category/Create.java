@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController("CreateCategoriesAPI")
-@RequestMapping(path = "/Categories")
+@RequestMapping(path = "/categories")
 public class Create {
     @Autowired
     CategoryDAO categoryDAO;

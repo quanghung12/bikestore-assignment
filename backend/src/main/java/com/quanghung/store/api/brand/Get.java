@@ -17,7 +17,7 @@ public class Get {
 
     @GetMapping(path = "/{brandId}")
     public Brand Get(@PathVariable int brandId) {
-        return brandDAO.getBrand(brandId);
+        return brandDAO.findById(brandId);
     }
 
 }

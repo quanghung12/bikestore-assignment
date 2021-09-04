@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController("DeleteCategoriesAPI")
-@RequestMapping(path = "Categories")
+@RequestMapping(path = "categories")
 public class Delete {
     @Autowired
     CategoryDAO categoryDAO;

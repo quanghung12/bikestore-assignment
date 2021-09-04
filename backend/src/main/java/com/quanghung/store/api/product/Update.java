@@ -25,7 +25,7 @@ public class Update {
     @Transactional
     public Product Update(@PathVariable int productId, @RequestBody Request req) {
 
-        Product a = productDAO.getProduct(productId);
+        Product a = productDAO.findById(productId);
         a.setProductName(req.productName);
         a.setBrandId(req.brandId);
         a.setCategoryId(req.categoryId);

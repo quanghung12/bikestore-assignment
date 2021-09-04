@@ -1,8 +1,8 @@
-http://localhost:8080/Categories
+http://localhost:8080/categories/1
 
 ###
 
-http://localhost:8080/orders?q=2018
+http://localhost:8080/categories
 
 ###
 POST http://localhost:8080/Categories
