@@ -9,7 +9,7 @@ public class Brand {
     @Id
     @Column(name = "brand_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int brandId;
+    private Long brandId;
 
     @Column(name = "brand_name", nullable = false)
     private String brandName;
@@ -21,11 +21,11 @@ public class Brand {
         this.brandName = brandName;
     }
 
-    public int getBrandId() {
+    public Long getBrandId() {
         return brandId;
     }
 
-    public void setBrandId(int brandId) {
+    public void setBrandId(Long brandId) {
         this.brandId = brandId;
     }
 

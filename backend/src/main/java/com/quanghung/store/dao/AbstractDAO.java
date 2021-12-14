@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Transactional
 public abstract class AbstractDAO<T> {
@@ -19,10 +20,11 @@ public abstract class AbstractDAO<T> {
         this.tClass = tClass;
     }
 
-    public T findById(Integer id) {
+    public Optional<T> findById(Integer id) {
         Session session = sessionFactory.getCurrentSession();
         T entity = session.get(tClass, id);
-        return entity;
+        Optional<T> optional = Optional.ofNullable(entity);
+        return optional;
     }
 
     public List<T> getAll() {
@@ -39,11 +41,11 @@ public abstract class AbstractDAO<T> {
         return entity;
     }
 
-    public void delete(Integer brandId) {
+/*    public void delete(Integer brandId) {
         Session session = this.sessionFactory.getCurrentSession();
-        T entity = findById(brandId);
-        if (entity != null) {
+        Optional<entity> = findById(brandId);
+        if () {
             session.delete(entity);
         }
-    }
+    }*/
 }
